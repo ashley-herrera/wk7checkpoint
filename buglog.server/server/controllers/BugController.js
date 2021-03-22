@@ -8,6 +8,8 @@ export class BugController extends BaseController {
     this.router
       .get('/', this.getBugs)
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('/:id', this.getBugById)
+      .post('', this.createBug)
   }
 
   async getBugs(req, res, next) {
@@ -28,25 +30,26 @@ export class BugController extends BaseController {
 
   async createBug() {
     try {
-
+      
+      res.send(await bugService.createBug(req.))
     } catch (error) {
       next(error)
     }
   }
 
-  async editBug() {
-    try {
+  // async editBug() {
+  //   try {
 
-    } catch (error) {
+  //   } catch (error) {
 
-    }
-  }
+  //   }
+  // }
 
-  async deleteBug() {
-    try {
+  // async deleteBug() {
+  //   try {
 
-    } catch (error) {
+  //   } catch (error) {
 
-    }
-  }
+  //   }
+  // }
 }

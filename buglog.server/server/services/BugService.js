@@ -6,8 +6,8 @@ class BugService {
     return await dbContext.Bug.find({})
   }
 
-  async getBugById(id) {
-    return await dbContext.Bug.findById(id)
+  async getBugById(query) {
+    return await dbContext.Bug.findById(query)
   }
 
   async createBug(title) {
