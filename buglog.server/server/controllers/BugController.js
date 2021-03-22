@@ -10,6 +10,7 @@ export class BugController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/:id', this.getBugById)
       .post('', this.createBug)
+      .put('/:id', this.editBug)
   }
 
   async getBugs(req, res, next) {
@@ -37,15 +38,16 @@ export class BugController extends BaseController {
     }
   }
 
-  // async editBug() {
-  //   try {
+  async editBug(req, res, next) {
+    try {
+      req.body.creatorId = req.userInfo.id
+      res.send(await bugService.editBug(req.params.id, req.userInfo.id, req.body))
+    } catch (error) {
+      next(error)
+    }
+  }
 
-  //   } catch (error) {
-
-  //   }
-  // }
-
-  // async deleteBug() {
+  // async deleteBug(req, res, next) {
   //   try {
 
   //   } catch (error) {

@@ -1,5 +1,5 @@
 import { dbContext } from '../db/DbContext'
-// import { BadRequest } from '../utils/Errors'
+import { BadRequest } from '../utils/Errors'
 
 class BugService {
   async getBugs() {
@@ -14,9 +14,12 @@ class BugService {
     return await dbContext.Bug.create(body)
   }
 
-  // async editBug() {
-
-  // }
+  async editBug(id, userId, body) {
+    const post = await dbContext.Bug.findOneAndUpdate({ _id: id, creatorId: userId }, body, { new: true })
+    if (!post) {
+      throw new BadRequest('You are not the CREATOR OR BAD ID')
+    }
+  }
 
   // async deleteBug() {
 
