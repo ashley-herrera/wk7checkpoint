@@ -2,8 +2,8 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class NoteService {
-  async getNoteByBugId(query) {
-    return await dbContext.Note.findById(query)
+  async getNotesByBugId(id) {
+    return await dbContext.Note.findById(id).populate('bug', 'title', 'body')
   }
 
   async createNote(body) {

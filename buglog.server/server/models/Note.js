@@ -1,10 +1,11 @@
 import mongoose from 'mongoose'
+const ObjectId = mongoose.SchemaTypes.ObjectId
 const Schema = mongoose.Schema
 
 const Note = new Schema(
   {
     body: { type: String, required: true },
-    bugId: { type: Object, ref: 'Bug', required: true }, // type: ObjectId?
+    bug: { type: ObjectId, ref: 'Bug', required: true },
     creatorId: { type: String, required: true }
   },
 
