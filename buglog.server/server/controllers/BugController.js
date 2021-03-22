@@ -42,7 +42,9 @@ export class BugController extends BaseController {
   async editBug(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
-      res.send(await bugService.editBug(req.params.id, req.userInfo.id, req.body))
+      delete req.body.closed
+      const bugEdit = await bugService.editBug(req.params.id, req.userInfo.id, req.body)
+      res.send(bugEdit)
     } catch (error) {
       next(error)
     }
