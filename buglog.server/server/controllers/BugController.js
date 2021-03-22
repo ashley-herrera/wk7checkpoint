@@ -6,13 +6,13 @@ export class BugController extends BaseController {
   constructor() {
     super('api/bugs')
     this.router
-      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('/', this.getBugs)
+      .use(Auth0Provider.getAuthorizedUserInfo)
   }
 
   async getBugs(req, res, next) {
     try {
-      return res.send(await bugService.getBugs(req.id))
+      return res.send(await bugService.getBugs())
     } catch (error) {
       next(error)
     }
