@@ -17,4 +17,36 @@ export class BugController extends BaseController {
       next(error)
     }
   }
+
+  async getBugById(req, res, next) {
+    try {
+      return res.send(await bugService.getBugById(req.params.id))
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async createBug() {
+    try {
+
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async editBug() {
+    try {
+
+    } catch (error) {
+
+    }
+  }
+
+  async deleteBug() {
+    try {
+
+    } catch (error) {
+
+    }
+  }
 }
