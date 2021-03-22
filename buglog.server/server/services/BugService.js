@@ -21,9 +21,12 @@ class BugService {
     }
   }
 
-  // async deleteBug() {
-
-  // }
+  async deleteBug(id, userId) {
+    const post = await dbContext.Bug.findByIdAndRemove({ _id: id, creatorId: userId })
+    if (!post) {
+      throw new BadRequest('You are not the CREATOR OR BAD ID')
+    }
+  }
 }
 
 export const bugService = new BugService()

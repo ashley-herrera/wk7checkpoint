@@ -47,11 +47,11 @@ export class BugController extends BaseController {
     }
   }
 
-  // async deleteBug(req, res, next) {
-  //   try {
+  async deleteBug(req, res, next) {
+    try {
 
-  //   } catch (error) {
+    } catch (error) {
 
-  //   }
-  // }
+    }
+  }
 }
