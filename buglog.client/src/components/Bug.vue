@@ -1,6 +1,6 @@
 <template>
   <!--NOTE Title, CreatorId, Closed, Modified date -->
-  <div class="row">
+  <div class="row border border-gray">
     <div class="col">
       {{ bug.title }}
       <!--TODO Bug details page router link -->
