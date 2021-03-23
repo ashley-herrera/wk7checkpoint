@@ -63,6 +63,4 @@ export default {
   // text-align: center;
   user-select: none;
   }
-  .title{
-  }
 </style>
