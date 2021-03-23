@@ -1,9 +1,14 @@
 <template>
   <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo">
-    <h1 class="my-5 bg-dark text-light p-3 rounded d-flex align-items-center">
-      <span class="mx-2 text-white">Vue 3 Starter</span>
-    </h1>
+    <h3 class="card-title m-3 bg-dark text-light p-3 d-flex">
+      <span>Title |</span>
+      <span>Reported By |</span>
+      <span>Status |</span>
+      <span>Last Modified</span>
+    </h3>
+    <div class="card-body">
+      Bug list
+    </div>
   </div>
 </template>
 
@@ -17,9 +22,5 @@ export default {
 .home{
   text-align: center;
   user-select: none;
-  > img{
-    height: 200px;
-    width: 200px;
-  }
 }
 </style>
