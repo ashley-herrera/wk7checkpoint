@@ -14,15 +14,25 @@
 </template>
 
 <script>
+import { AppState } from '../AppState'
+import { reactive, computed, onMounted } from 'vue'
+import { bugService } from '../services/'
 
 export default {
   name: 'Bug',
   props: {
     bug: Object
   },
-  setup(props) {
+  setup() {
+    const state = reactive({
+      user: computed(() => AppState.user),
+      bug: computed(() => AppState.user)
+    })
+    onMounted(() => {
+      bugService.getBugs()
+    })
     return {
-
+      state
     }
   }
 }
