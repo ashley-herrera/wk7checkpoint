@@ -1,13 +1,13 @@
 <template>
   <div class="row">
     <div class="card">
+      <!-- Title, CreatorId, Closed, Modified date? -->
+      {{ bug.title }}
     </div>
   </div>
 </template>
 
 <script>
-import { AppState } from '../AppState'
-import { reactive, computed } from 'vue'
 
 export default {
   name: 'Bug',
@@ -15,11 +15,8 @@ export default {
     bug: Object
   },
   setup(props) {
-    const state = reactive({
-      user: computed(() => AppState.user)// NOTE What is this doing and do I need it? (Probably)
-    })
     return {
-      state
+
     }
   }
 }
