@@ -1,23 +1,48 @@
+import { AppState } from '../AppState'
+import { logger } from '../utils/Logger'
+import { api } from './AxiosService'
+import { Bug } from '../models/Bug'
+
 class BugService {
   async getBugs() {
-
+    try {
+      const res = await api.get('api/bugs')
+      AppState.bugs = res.data.map(b => new Bug(b))
+    } catch (error) {
+      logger.error(error)
+    }
   }
 
-  async getBugById() {
-
+  async getBugById(id) {
+    try {
+      const res = await api.get('api/bugs/' + id)
+      AppState.selectedBug = res.data
+    } catch (error) {
+      logger.error(error)
+    }
   }
 
-  async createBug() {
-
+  async createBug(bugData) {
+    try {
+      await api.post('api/bugs', new Bug(bugData))
+      this.getBugs()
+    } catch (error) {
+      logger.error(error)
+    }
   }
 
-  async editBug() {
+  async editBug(id) {
+    try {
+      const res = await api.put('api/bugs/' + id)
+      AppState.bugs = res.data
+    } catch (error) {
 
+    }
   }
 
-  async deleteBug() {
-
+  async deleteBug(id) {
+    await api.delete(`api/bugs/${id}`)
+    this.getBugs()
   }
 }
-
 export const bugService = new BugService()
