@@ -6,8 +6,22 @@
 </template>
 
 <script>
-export default {
+import { AppState } from '../AppState'
+import { reactive, computed } from 'vue'
 
+export default {
+  name: 'Bug',
+  props: {
+    bug: Object
+  },
+  setup(props) {
+    const state = reactive({
+      user: computed(() => AppState.user)// NOTE What is this doing and do I need it?
+    })
+    return {
+      state
+    }
+  }
 }
 </script>
 
