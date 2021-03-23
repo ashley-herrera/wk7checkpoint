@@ -3,7 +3,7 @@ import { BadRequest } from '../utils/Errors'
 
 class NoteService {
   async getNotesByBugId(id) {
-    return await dbContext.Note.findById(id).populate('bug', 'title', 'body')
+    return await dbContext.Note.find(id)
   }
 
   async createNote(body) {

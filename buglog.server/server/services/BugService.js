@@ -15,7 +15,7 @@ class BugService {
   }
 
   async editBug(id, userId, body) {
-    const post = await dbContext.Bug.findOneAndUpdate({ _id: id, creatorId: userId }, body, { new: true })
+    const post = await dbContext.Bug.findOneAndUpdate({ _id: id, creatorId: userId, closed: false }, body, { new: true })
     if (!post) {
       throw new BadRequest('You are not the CREATOR OR BAD ID')
     }
