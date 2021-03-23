@@ -2,7 +2,7 @@
   <div class="container align-items-center justify-content-center">
     <h1 class="m-3">
       Current Bugs
-      <button class="btn btn-danger">
+      <button class="btn btn-danger" @click="">
         Report
       </button>
     </h1>
