@@ -8,8 +8,11 @@
     <div class="col">
       {{ bug.creatorId }}
     </div>
-    <div class="col">
-      {{ bug.closed ? "Closed" : "Open" }}
+    <div class="col text-danger" v-if="bug.closed == true">
+      Closed
+    </div>
+    <div class="col text-success" v-else>
+      Open
     </div>
     <div class="col">
       {{ new Date(bug.updatedAt).toDateString() }}
