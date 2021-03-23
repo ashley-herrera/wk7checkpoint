@@ -21,7 +21,6 @@ class BugService {
     }
   }
 
-  // TODO Isn't passing error test, but it still works (Timeboxed)
   async deleteBug(id, userId) {
     const bug = await this.getBugById(id)
     if (!bug.closed) {
