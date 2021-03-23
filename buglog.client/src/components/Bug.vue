@@ -16,7 +16,7 @@ export default {
   },
   setup(props) {
     const state = reactive({
-      user: computed(() => AppState.user)// NOTE What is this doing and do I need it?
+      user: computed(() => AppState.user)// NOTE What is this doing and do I need it? (Probably)
     })
     return {
       state

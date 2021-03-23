@@ -5,7 +5,6 @@
 <script>
 import { AppState } from '../AppState'
 import { reactive, computed } from 'vue'
-import { boardsService } from '../services/BoardsService'
 
 export default {
 
