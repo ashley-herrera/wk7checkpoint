@@ -7,5 +7,6 @@ export class Bug {
     this.closedDate = data.closedData || ''
     this.creatorId = data.creatorId || ''
     this.updatedAt = data.updatedAt || ''
+    this.creator = data.creator || {}
   }
 }

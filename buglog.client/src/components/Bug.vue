@@ -6,7 +6,7 @@
       <!--TODO Bug details page router link -->
     </div>
     <div class="col">
-      {{ bug.creatorId }}
+      {{ bug.creator.name }}
     </div>
     <div class="col text-danger" v-if="bug.closed == true">
       Closed
