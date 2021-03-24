@@ -2,9 +2,49 @@
   <div class="container align-items-center justify-content-center">
     <h1 class="m-3">
       Current Bugs
-      <button class="btn btn-danger">
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#bugModal">
         Report
       </button>
+      <!-- Modal -->
+      <div class="modal fade"
+           id="bugModal"
+           tabindex="-1"
+           role="dialog"
+           aria-labelledby="exampleModalLabel"
+           aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Report a bug
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="title" class="form-control" id="title" placeholder="Bug name...">
+              </div>
+              <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea name="description" id="description" cols="24" rows="10"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn btn-success">
+                Report
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bug Table -->
     </h1>
     <div class="card">
       <div class="row border font-weight-bold">

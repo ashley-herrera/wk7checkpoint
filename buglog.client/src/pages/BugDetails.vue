@@ -3,9 +3,38 @@
     <div class="row mt-3">
       <h1>{{ state.bug.title }}</h1>
       <div class="col d-flex justify-content-end">
-        <button class="btn btn-danger">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#closeConfirm">
           Close
         </button>
+        <div class="modal fade"
+             id="closeConfirm"
+             tabindex="-1"
+             role="dialog"
+             aria-labelledby="exampleModalLabel"
+             aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">
+                  Are You Sure?
+                </h3>
+                <span>This cannot be undone.</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">
+                  Yes
+                </button>
+                <button type="button" class="btn btn-danger">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row mt-3">
@@ -23,6 +52,7 @@
     <div class="row mt-3 border border-dark">
       {{ state.bug.description }}
     </div>
+
     <!-- Notes -->
     <div class="row mt-5">
       <h1>Notes</h1>

@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import { computed, onMounted, reactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { AppState } from '../AppState'
-import { bugService } from '../services/BugService'
+// import { bugService } from '../services/BugService'
 
 export default {
   name: 'Note',
@@ -26,9 +26,7 @@ export default {
     const state = reactive({
       user: computed(() => AppState.user)
     })
-    onMounted(() => {
-      bugService.getNotesByBugId()
-    })
+
     return {
       state
     }
