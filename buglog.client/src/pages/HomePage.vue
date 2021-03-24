@@ -7,7 +7,7 @@
       </button>
     </h1>
     <div class="card">
-      <div class="row mx-1 border border-bottom-danger">
+      <div class="row border font-weight-bold">
         <div class="col">
           Title
         </div>

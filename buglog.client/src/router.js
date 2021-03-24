@@ -16,6 +16,11 @@ const routes = [
     name: 'Account',
     component: loadPage('AccountPage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/api/bugs/:id',
+    name: 'BugDetails',
+    component: loadPage('BugDetails')
   }
 ]
 
