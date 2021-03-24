@@ -22,6 +22,15 @@ class BugService {
     }
   }
 
+  async getNotesByBugId(id) {
+    try {
+      const res = await api.get(`api/bugs/${id}/notes`)
+      AppState.notes = res.data
+    } catch (error) {
+      logger.error(error)
+    }
+  }
+
   async createBug(bugData) {
     try {
       await api.post('api/bugs', new Bug(bugData))

@@ -32,19 +32,18 @@
         </button>
       </div>
     </div>
-    <div class="row">
-      <div class="row border border-dark font-weight-bold">
-        <div class="col">
-          Name
-        </div>
-        <div class="col">
-          Message
-        </div>
-        <div class="col">
-          Delete
-        </div>
+    <div class="row border border-dark font-weight-bold">
+      <div class="col">
+        Name
+      </div>
+      <div class="col">
+        Message
+      </div>
+      <div class="col d-flex justify-content-end">
+        Delete
       </div>
     </div>
+    <Note v-for="note in state.notes" :key="note.id" :note="note" />
   </div>
 </template>
 
@@ -53,7 +52,7 @@ import { AppState } from '../AppState'
 import { reactive, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { bugService } from '../services/BugService'
-// import Bug from '../components/Bug'
+import Note from '../components/Note'
 
 export default {
   name: 'BugDetails',
@@ -61,13 +60,13 @@ export default {
     const route = useRoute()
     const router = useRouter()
     const state = reactive({
-      bug: computed(() => AppState.selectedBug)
-      // note: computed(() => AppState.notes)
+      bug: computed(() => AppState.selectedBug),
+      notes: computed(() => AppState.notes)
     })
 
     onMounted(() => {
       bugService.getBugById(route.params.id)
-      // noteService.getNotes(route.params.id)
+      bugService.getNotesByBugId(route.params.id)
     })
 
     return {
@@ -77,7 +76,7 @@ export default {
     }
   },
   components: {
-    // Bug
+    Note
   }
 }
 </script>
