@@ -26,20 +26,29 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="Title">Title</label>
-                <input type="title" class="form-control" id="title" placeholder="Bug name...">
+                <input type="title" class="form-control" id="title" placeholder="Bug name..." v-model="newBug.title">
               </div>
               <div class="form-group">
-                <label for="Description">Description</label>
-                <textarea name="description" id="description" cols="24" rows="10"></textarea>
+                <label for="description" class="form-label">Description</label>
+                <textarea type="text"
+                          name="description"
+                          class="form-input"
+                          placeholder=""
+                          rows="3"
+                          v-model="newBug.description"
+                >
+                </textarea>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Close
               </button>
-              <button type="button" class="btn btn-success">
-                Report
-              </button>
+              <router-link :to="{name: 'BugDetails', params: {id: newBug.id}}">
+                <button type="button" class="btn btn-success" @submit="createBug()">
+                  Report
+                </button>
+              </router-link>
             </div>
           </div>
         </div>
@@ -80,6 +89,7 @@ import { bugService } from '../services/BugService'
 export default {
   name: 'Home',
   setup() {
+    const newBug = {}
     const state = reactive({
       bugs: computed(() => AppState.bugs)
     })
@@ -88,7 +98,12 @@ export default {
     })
 
     return {
-      state
+      state,
+      newBug,
+      async createBug() {
+        bugService.createBug(newBug)
+        // bugService.getBugById(newBug)
+      }
     }
   },
 
